@@ -2,7 +2,7 @@ tableextension 50110 MNBCustomer extends Customer
 {
     fields
     {
-        field(50100; "MNBBonus"; Integer)
+        field(50110; "MNBBonus"; Integer)
         {
             Caption = 'Bonus Points';
             FieldClass = FlowField;

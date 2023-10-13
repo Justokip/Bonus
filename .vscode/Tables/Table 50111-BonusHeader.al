@@ -1,6 +1,6 @@
 table 50111 "MNB Bonus Header"
 {
-    DataClassification = CustomerContent;
+    //DataClassification = CustomerContent;
     Caption = 'Bonus';
     DrillDownPageId = "MNB Bonus List";
     LookupPageId = "MNB Bonus List";
@@ -34,6 +34,10 @@ table 50111 "MNB Bonus Header"
             DataClassification = CustomerContent;
             Caption = 'Status';
         }
+        field(6; Series; Code[20])
+        {
+
+        }
     }
 
     keys
@@ -43,7 +47,15 @@ table 50111 "MNB Bonus Header"
             Clustered = true;
         }
     }
+    var
+        NumberSeriesMgt: Codeunit NoSeriesManagement;
+        SalesSetUpMtg: Record "MNB Bonus Setup";
 
-
+    trigger OnInsert()
+    begin
+        SalesSetUpMtg.Get();
+        if "NO." = '' then
+            NumberSeriesMgt.InitSeries(SalesSetUpMtg."Bonus Nos.", xRec.Series, 0D, "NO.", Series);
+    end;
 
 }

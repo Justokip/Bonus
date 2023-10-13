@@ -1,8 +1,8 @@
 page 50113 "MNB Bonus Subform"
 {
     PageType = ListPart;
-    ApplicationArea = All;
-    UsageCategory = Lists;
+    //ApplicationArea = All;
+    //UsageCategory = Lists;
     SourceTable = "MNB Bonus Line";
     Caption = 'Lines';
 

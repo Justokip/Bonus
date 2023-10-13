@@ -22,12 +22,16 @@ page 50110 "MNB Bonus Setup"
             }
         }
     }
-    // trigger OnOpenPage()
-    // begin
-    //     Reset();
-    //     if not Get() then begin
-    //         Init();
-    //         Insert();
-    //     end
-    // end;
+  trigger OnOpenPage()
+  begin
+    Rec.Reset();
+    if not Rec.Get() then begin
+        Rec.Init();
+        Rec.Insert();
+
+    end;
+    
+  end;
+   
 }
+ 

@@ -1,20 +1,24 @@
 page 50112 "MNB Bonus Card"
 {
-    PageType = List;
+    PageType = Document;
     ApplicationArea = All;
-    UsageCategory = Lists;
+    UsageCategory = Administration;
     SourceTable = "MNB Bonus Header";
+
 
     layout
     {
         area(Content)
         {
-            repeater(General)
+            group(General)
             {
+
+                Caption = 'General';
                 field("NO."; Rec."No.")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the bonus number';
+                    Editable = false;
                 }
                 field("Customer NO."; Rec."Customer NO.")
                 {
@@ -38,12 +42,15 @@ page 50112 "MNB Bonus Card"
                     ToolTip = 'Specifies the bonus state';
 
                 }
+
+            }
+            part(Lines; "MNB Bonus Subform")
+            {
+                ApplicationArea = All;
+                SubPageLink = "Document No." = field("No.");
             }
         }
-        area(Factboxes)
-        {
 
-        }
     }
 
     actions
@@ -61,6 +68,22 @@ page 50112 "MNB Bonus Card"
                 RunPageLink = "No." = field("Customer No.");
                 ToolTip = 'Opens customer card.';
             }
+            action(BonusEntries)
+            {
+                ApplicationArea = All;
+                Caption = 'Bonus Entries';
+                Image = Entry;
+                Promoted = true;
+                PromotedCategory = Process;
+                RunObject = page "MNB Bonus Entry Page";
+                RunPageLink = "Bonus No." = field("No.");
+                ToolTip = 'Opens bonus entries.';
+            }
+
         }
+
+
     }
+
+
 }

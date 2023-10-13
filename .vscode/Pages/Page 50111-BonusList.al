@@ -12,11 +12,6 @@ page 50111 "MNB Bonus List"
     {
         area(Content)
         {
-            part(Lines; "MNB Bonus Subform")
-            {
-                ApplicationArea = All;
-                SubPageLink = "Document No." = field("No.");
-            }
 
             repeater(Control)
             {
@@ -48,7 +43,7 @@ page 50111 "MNB Bonus List"
 
                 }
             }
-            
+
         }
         area(Factboxes)
         {
@@ -70,6 +65,17 @@ page 50111 "MNB Bonus List"
                 RunObject = page "Customer Card";
                 RunPageLink = "No." = field("Customer No.");
                 ToolTip = 'Opens customer card.';
+            }
+            action(BonusEntries)
+            {
+                ApplicationArea = All;
+                Caption = 'Bonus Entries';
+                Image = Entry;
+                Promoted = true;
+                PromotedCategory = Process;
+                RunObject = page "MNB Bonus Entry Page";
+                RunPageLink = "Bonus No." = field("No.");
+                ToolTip = 'Opens bonus entries.';
             }
         }
     }
