@@ -14,6 +14,10 @@ page 50114 "Bonus Role Center"
                 {
                     ApplicationArea = Basic, suite;
                 }
+                part(Bonus; "Bonus Cues")
+                {
+                    ApplicationArea = Basic, suite;
+                }
             }
             group(groupRole)
             {
@@ -36,14 +40,14 @@ page 50114 "Bonus Role Center"
                     ApplicationArea = Basic, Suite;
                     Caption = 'Bonus List';
                 }
-                 action(pp)
+                action(pp)
                 {
                     RunObject = page "MNB Bonus Entry Page";
                     //Image = Customer;
                     ApplicationArea = Basic, Suite;
                     Caption = 'Bonus Entries';
                 }
-              
+
             }
             group(Section3)
             {
@@ -56,7 +60,7 @@ page 50114 "Bonus Role Center"
                     Caption = 'Bonus Setup';
                 }
             }
-              group(Section4)
+            group(Section4)
             {
                 Caption = 'Report';
                 action(report)

@@ -3,7 +3,7 @@ report 50110 "MNB Bonus Overview Report"
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     Caption = 'Bonus Overview';
-    WordLayout = 'BonusOverviewReport.docx';
+    WordLayout = '.vscode\Reports\Report 50111 - BonusOverviewReport.docx';
     DefaultLayout = Word;
 
     //DefaultRenderingLayout = LayoutName;
@@ -12,7 +12,6 @@ report 50110 "MNB Bonus Overview Report"
     {
         dataitem(DataItemName; "MNB Bonus Header")
         {
-
             RequestFilterFields = "NO.", "Customer NO.";
             column(NO_; "NO.")
             {
@@ -70,7 +69,32 @@ report 50110 "MNB Bonus Overview Report"
             {
 
             }
+            column(AmountSum; AmountSum)
+            {
 
+            }
+            dataitem(EntryTable; "Bonus Entry Table")
+            {
+                //DataItemLink = "Bonus No." = field("No.");
+                RequestFilterFields = "Posting Date";
+                column(Document_No_; "Document No.")
+                {
+
+                }
+                column(Item_No_; "Item No.")
+                {
+
+                }
+                column(Posting_Date; "Posting Date")
+                {
+
+                }
+                column(Bonus_Amount; "Bonus Amount")
+                {
+
+
+                }
+            }
             trigger OnAfterGetRecord()
             var
 
@@ -81,32 +105,8 @@ report 50110 "MNB Bonus Overview Report"
                 MNBBonusEntry.CalcSums("Bonus Amount");
                 AmountSum := MNBBonusEntry."Bonus Amount";
             end;
-
         }
 
-
-        dataitem("Bonus Entry Table"; "Bonus Entry Table")
-        {
-
-            RequestFilterFields = "Posting Date";
-            column(Document_No_; "Document No.")
-            {
-
-            }
-            column(Item_No_; "Item No.")
-            {
-
-            }
-            column(Posting_Date; "Posting Date")
-            {
-
-            }
-            column(Bonus_Amount; "Bonus Amount")
-            {
-
-            }
-
-        }
     }
 
     var

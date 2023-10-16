@@ -42,6 +42,12 @@ page 50112 "MNB Bonus Card"
                     ToolTip = 'Specifies the bonus state';
 
                 }
+                field("Customer Name"; Rec."Customer Name")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the customer name';
+                }
+
 
             }
             part(Lines; "MNB Bonus Subform")
@@ -49,6 +55,15 @@ page 50112 "MNB Bonus Card"
                 ApplicationArea = All;
                 SubPageLink = "Document No." = field("No.");
             }
+        }
+        area(Factboxes)
+        {
+            part(Statistics; "Bonus Statistics Page")
+            {
+                SubPageLink = "NO." = field("NO.");
+                Caption = 'Statistics';
+            }
+
         }
 
     }
